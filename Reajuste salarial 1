@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <locale.h>
+
+void main () {
+	
+	setlocale (LC_ALL, "Portuguese");
+	
+	printf ("Seja bem vindo!!!\n\n\nAqui você poderá calcular qual foi o total recebido desde seu último reajuste salarial,\ne quantos você ganhará até um determinado tempo escolhido!\n");
+	printf ("Se você não teve um reajuste salarial, pode colocar quantos meses está trabalhando na empresa.\n\n\n");
+	
+	float meses, salario, salarioB1, salarioL1, salarioB2, salarioL2;
+	printf ("Digite quantos meses já se passaram desde seu último reajuste:\t");
+	scanf ("%f", &meses);
+	printf ("\n\nDigite qual é o seu salário mensal depois do reajuste:\tR$");
+	scanf ("%f", &salario);
+	salarioB1 = meses * salario;
+	printf ("\n\nO total de salário BRUTO recebido desde o último reajuste até agora, foi de:\tR$%.2f\n", salarioB1);
+	salarioL1 = (salarioB1*50)/100;
+	printf("\n\n\aO total de salário LÍQUIDO (descontando 50%% que é a média de gastos per capta)\nrecebido desde o último reajuste até agora, foi de:\tR$%.2f\n\n", salarioL1);
+	
+	int anos;
+	printf ("\nAgora digite mais quantos anos você pretende trabalhar na empresa:\t");
+	scanf ("%d", &anos);
+	salarioB2 = ((anos * salario) * 12)+ salarioB1;
+	printf ("\n\aEm %d anos, se você permanecer com o salário de R$%.2f incluindo seu ganho até agora na empresa,\nterá  adquirido um total BRUTO de:\tR$%.2f\n\n", anos, salario, salarioB2);
+	salarioL2 = (salarioB2*50)/100 - salarioB1 + salarioL1;
+	printf ("E o seu ganho LÍQUIDO (lucro), incluindo o líquido já ganho desde seu último reajuste, até agora, será de: R$%.2f\n\n\nObrigado! :)\n\n", salarioL2);
+	
+	system ("pause");
+}
